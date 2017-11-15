@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <span >importation effectuée de VH</span>
+    <table border="1" style="width:600px">
+     <tr style="background-color:yellow">
+		<td>identifiant</td>
+		<td>Nom</td>
+	</tr>
+    <th:block th:each="suivi : ${suivis}">
+    <tr>
+    	<td th:text="${suivi.adherentString()}"></td>
+        <td th:text="${suivi.nom_adherent} + ' ' + ${suivi.prenom_adherent}"></td>  
+    </tr>
+</th:block>
+</table>
+</body>
+</html>
