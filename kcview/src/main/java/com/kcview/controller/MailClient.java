@@ -29,7 +29,6 @@ public class MailClient {
             messageHelper.setFrom("kcview.mail@gmail.com");
             messageHelper.setTo(recipient);
             messageHelper.setSubject("[Importation] suivi comptant de " + message);
-            //messageHelper.setText("ererer");
             String content = mailContentBuilder.build(message, suivis);
             messageHelper.setText(content, true);
         };
@@ -40,5 +39,7 @@ public class MailClient {
         	System.out.println("dddd");
         }
     }
+    
+    
 
 }

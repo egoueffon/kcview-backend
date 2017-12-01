@@ -27,18 +27,12 @@ import com.kcview.vo.SyntheseClub;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/api/v1/", produces = APPLICATION_JSON_VALUE)
 public class OperationRestService {
 	
 	@Autowired
 	private com.kcview.dao.OperationRepository operationRepository;
 
-	
-//	@CrossOrigin(origins = "http://localhost:4200")
-//	@RequestMapping("/DayOperations")
-//	public List<Operation> DayOperations(int ficheId) {
-//		//List<Operation> list = OperationRepository.findAll(ficheId);
-//		return new ResponseEntity<List<Operation>>(list, HttpStatus.OK);
-//	}
 	
 	@RequestMapping(value = "/saveOperation", method = {GET, POST}, produces = APPLICATION_JSON_VALUE )
 	public ResponseEntity<Operation> saveOperation(@RequestBody Operation operation) {

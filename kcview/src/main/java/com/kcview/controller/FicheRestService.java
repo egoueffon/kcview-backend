@@ -1,5 +1,7 @@
 package com.kcview.controller;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +30,7 @@ import com.kcview.vo.SyntheseFicheVO;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/api/v1/", produces = APPLICATION_JSON_VALUE)
 public class FicheRestService {
 	
 	@Autowired

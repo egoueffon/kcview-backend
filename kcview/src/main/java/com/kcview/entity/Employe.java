@@ -2,12 +2,14 @@ package com.kcview.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -26,11 +28,17 @@ public class Employe implements Serializable {
 	String prenom;
 	private String color;	
 	private Boolean actif;
+
 	
 	@ManyToOne
     @JoinColumn(name = "id_club")
 	@JsonIgnoreProperties({"employes", "packs"})
 	private Club club;
+	
+	@ManyToOne(cascade=CascadeType.ALL) 
+	@JoinColumn(name = "id_generic_profile")
+	@JsonIgnoreProperties("employes")
+	private GenericProfil generic_profile;
 	
 	public int getId() {
 		return id;
@@ -69,6 +77,12 @@ public class Employe implements Serializable {
 	}
 	public void setClub(Club club) {
 		this.club = club;
+	}
+	public GenericProfil getGeneric_profile() {
+		return generic_profile;
+	}
+	public void setGeneric_profile(GenericProfil generic_profile) {
+		this.generic_profile = generic_profile;
 	}
 
 }

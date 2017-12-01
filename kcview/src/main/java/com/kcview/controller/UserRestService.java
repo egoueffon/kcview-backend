@@ -1,5 +1,7 @@
 package com.kcview.controller;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 import java.util.List;
 
 //import javax.servlet.http.HttpSession;
@@ -15,7 +17,8 @@ import com.kcview.dao.UserRepository;
 import com.kcview.entity.Employe;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
+@RequestMapping(path = "/api/v1/", produces = APPLICATION_JSON_VALUE)
 public class UserRestService {
 	
 	@Autowired
@@ -34,7 +37,7 @@ public class UserRestService {
 	}
 	
 	
-	@RequestMapping("/AllUsers")
+	@RequestMapping("/allUsers")
 	public List<Employe> AllUsers() {
 		return userRepository.findAll();
 	}

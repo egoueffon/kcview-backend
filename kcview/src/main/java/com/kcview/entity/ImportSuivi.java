@@ -26,7 +26,7 @@ public class ImportSuivi implements Serializable   {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private Date date_import;
+	private Date date_import = new Date();
 	private String type;
 	private int id_club;
 	public int getId() {

@@ -108,5 +108,9 @@ public class Club implements Serializable {
 	public void setFormuleClub(Set<FormuleClub> formuleClub) {
 		this.formuleClub = formuleClub;
 	}
+	
+	public String getLabel() {
+		return this.name;
+	}
 
 }
